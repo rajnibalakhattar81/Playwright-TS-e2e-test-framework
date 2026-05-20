@@ -9,4 +9,9 @@ node_modules/
 README.md
 folder-structure-setup.md
 naming-conventions.md
+vscode-extensions.md
+debug/
+logs/
+*.log
+.env
 
