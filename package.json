@@ -1,0 +1,14 @@
+{
+  "name": "playwrighte2etestframework",
+  "version": "1.0.0",
+  "description": "This is playwright e2e test framework project",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {},
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1"
+  }
+}
