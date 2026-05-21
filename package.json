@@ -6,7 +6,11 @@
   "author": "",
   "type": "commonjs",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "login": "npx playwright test  tests/functional/login.spec.ts --headed",
+    "demo": "npx playwright test tests/demo/mytest.spec.ts --headed",
+    "demo:firefox":"npx playwright test tests/demo/mytest.spec.ts --project=firefox --headed"
+  },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.1"
