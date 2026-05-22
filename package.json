@@ -7,12 +7,21 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "debug:cli2": "npx playwright test tests/demo/debug.make.appt.spec.ts --debug",
+    "debug:cli": "set PWDEBUG=1 && npx playwright test tests/demo/debug.make.appt.spec.ts",
+    "debug:trace": "npx playwright test tests/demo/debug.make.appt.spec.ts --trace on",
+    "debug:ui": "npx playwright test tests/demo/debug.make.appt.spec.ts --ui --headed",
+    "debug": "npx playwright test tests/demo/debug.make.appt.spec.ts --headed",
+    "inventory": "npx playwright test tests/functional/inventory.spec.ts --headed",
+    "ele-int": "npx playwright test tests/demo/ele.handling.make.appt.spec.ts --headed",
     "login": "npx playwright test  tests/functional/login.spec.ts --headed",
+    "make-apt": "npx playwright test  tests/functional/make.appt.spec.ts --headed",
     "demo": "npx playwright test tests/demo/mytest.spec.ts --headed",
-    "demo:firefox":"npx playwright test tests/demo/mytest.spec.ts --project=firefox --headed"
+    "demo:firefox": "npx playwright test tests/demo/mytest.spec.ts --project=firefox --headed"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "@types/node": "^25.9.1"
+    "@types/node": "^25.9.1",
+    "allure-playwright": "^3.9.0"
   }
 }
