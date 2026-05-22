@@ -7,6 +7,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "demo:tag": "npx playwright test --grep @smoke --headed",
     "debug:cli2": "npx playwright test tests/demo/debug.make.appt.spec.ts --debug",
     "debug:cli": "set PWDEBUG=1 && npx playwright test tests/demo/debug.make.appt.spec.ts",
     "debug:trace": "npx playwright test tests/demo/debug.make.appt.spec.ts --trace on",
@@ -16,7 +17,7 @@
     "ele-int": "npx playwright test tests/demo/ele.handling.make.appt.spec.ts --headed",
     "login": "npx playwright test  tests/functional/login.spec.ts --headed",
     "make-apt": "npx playwright test  tests/functional/make.appt.spec.ts --headed",
-    "demo": "npx playwright test tests/demo/mytest.spec.ts --headed",
+    "demo": "npx playwright test tests/demo/mytest.spec.ts --headed ",
     "demo:firefox": "npx playwright test tests/demo/mytest.spec.ts --project=firefox --headed"
   },
   "devDependencies": {

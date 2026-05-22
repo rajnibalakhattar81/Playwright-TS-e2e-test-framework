@@ -49,6 +49,8 @@ export default defineConfig({
     trace: 'on-first-retry',
     navigationTimeout: 40_000, // set timeout to 30 seconds
     // ignoreHTTPSErrors: true
+    screenshot: 'only-on-failure',
+    video:'retain-on-failure',
   },
 
   /* Configure projects for major browsers */
