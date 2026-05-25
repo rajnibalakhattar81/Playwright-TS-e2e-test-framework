@@ -1,9 +1,16 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Login Functionality", () => {
-  test.beforeEach("Go to Login Page", async ({ page }) => {
+  test.beforeEach("Go to Login Page", async ({ page },testinfo) => {
     // Open the URl and assert the title and header
-    await page.goto("https://katalon-demo-cura.herokuapp.com/");
+
+
+
+    // Get the URL from config file
+    const envConfig= testinfo.project.use as any;
+    await page.goto(envConfig.appURL);
+      
+    // await page.goto("https://katalon-demo-cura.herokuapp.com/");
     await expect(page).toHaveTitle("CURA Healthcare Service");
     await expect(page.locator("//h1")).toHaveText("CURA Healthcare Service");
 

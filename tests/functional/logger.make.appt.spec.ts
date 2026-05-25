@@ -1,8 +1,11 @@
 import { test, expect } from "@playwright/test";
+import { log } from "../helpers/logger.js";
 
 test.describe("Login Functionality", () => {
   test.beforeEach("Go to Login Page", async ({ page }) => {
     // Open the URl and assert the title and header
+    
+    await log("info",'>>> Launching URL....')
     await page.goto("https://katalon-demo-cura.herokuapp.com/");
     await expect(page).toHaveTitle("CURA Healthcare Service");
     await expect(page.locator("//h1")).toHaveText("CURA Healthcare Service");
@@ -12,12 +15,19 @@ test.describe("Login Functionality", () => {
     await expect(page.locator("#login")).toContainText(
       "Please login to make appointment.",
     );
-    await page.getByLabel("Username").fill(process.env.TEST_USER_NAME);
-    await page.getByLabel("Password").fill(process.env.TEST_PASSWORD);
+    await page.getByLabel("Username").fill("John Doe");
+    await page.getByLabel("Username").press("Tab");
+    await page.getByLabel("Password").fill("ThisIsNotAPassword");
     await page.getByRole("button", { name: "Login" }).click();
 
     // assert the appointment text
     await expect(page.locator("h2")).toContainText("Make Appointment");
+    await log("info", 'Login successful...')
+    await log("warn", 'checking warning...')
+    await log("error", 'checking warning...')
+
+
+
   });
 
   test("should make an appointment successfully", async ({ page }) => {

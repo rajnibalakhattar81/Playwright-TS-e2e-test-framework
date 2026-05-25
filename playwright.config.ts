@@ -4,14 +4,14 @@ import { defineConfig, devices } from '@playwright/test';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+import dotenv from 'dotenv';
+import path from 'path';
+dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
+export const baseConfig = defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -41,6 +41,8 @@ export default defineConfig({
   ] // allure reporter
    ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  globalSetup: require.resolve('./tests/helpers/global-setup.ts'),
+  globalTeardown: require.resolve('./tests/helpers/global-teardown.ts'),
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
@@ -49,15 +51,23 @@ export default defineConfig({
     trace: 'on-first-retry',
     navigationTimeout: 40_000, // set timeout to 30 seconds
     // ignoreHTTPSErrors: true
-    screenshot: 'only-on-failure',
-    video:'retain-on-failure',
+    screenshot: 'on',
+    //video:'retain-on-failure',
+    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+
+    
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'],
+        // viewport: null,
+        launchOptions: {
+            args: ["--disable-blink-features=AutomationControlled", "--disable-features=IsolateOrigins,site-per-process", "--allow-no-sandbox-job"],
+        },
+      },
     },
 
     // {
@@ -67,7 +77,7 @@ export default defineConfig({
 
     // {
     //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
+    //   use: { ...devices['Desktop Safari'], ignoreHTTPSErrors: true },
     // },
 
     /* Test against mobile viewports. */
@@ -89,6 +99,10 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
+    // {
+    //     name: "Galaxy A55",
+    //     use: {...devices["Galaxy A55"]}
+    // }
   ],
 
   /* Run your local dev server before starting the tests */

@@ -23,7 +23,7 @@ test.describe("Login Functionality",{annotation: {type:"test annotation" , descr
     await page.getByLabel("Password").fill("ThisIsNotAPassword");
     await page.getByRole("button", { name: "Login" }).click();
 
-    let fullpagescreenshot= await page.screenshot();
+    let fullpagescreenshot= await page.screenshot({ fullPage: true });
     await testinfo.attach('login',{
       body: fullpagescreenshot,
       contentType: 'image/png'

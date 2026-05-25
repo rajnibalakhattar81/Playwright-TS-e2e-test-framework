@@ -3,15 +3,13 @@
 node_modules/
 /test-results/
 allure-results/
+resources/
+config/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
 README.md
-folder-structure-setup.md
-naming-conventions.md
-vscode-extensions.md
-allure-installation-setup.md
 debug/
 logs/
 *.log
