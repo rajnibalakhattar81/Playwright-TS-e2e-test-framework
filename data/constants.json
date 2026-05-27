@@ -5,6 +5,8 @@
   },
   "REQ_RES_ENDPOINTS": {
     "GET_USERS_LIST": "/users?page=2",
-    "POST_USER": "/users"
+    "POST_USER": "/users"    
   }
+
+
 }

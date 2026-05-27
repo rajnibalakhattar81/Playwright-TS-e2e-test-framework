@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { log } from "../helpers/logger";
 import HomePage from "../page-objects/nopcommerce.home.page";
+import pwHelper from "../helpers/pw-helper";
 
 test("Login functionality of nopcommerce application", async ({
   page,
@@ -21,4 +22,8 @@ test("Login functionality of nopcommerce application", async ({
     process.env.NOPE_COMMERCE_TEST_USERNAME,
     process.env.NOPE_COMMERCE_TEST_PASSWORD,
   );
+
+  pwHelper.takeFullPageScreenshot(page,'login page')
+
+  
 });

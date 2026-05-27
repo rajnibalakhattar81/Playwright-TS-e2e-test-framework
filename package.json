@@ -7,7 +7,11 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test:e2etest": "npx playwright test  --config=config/test.playwright.config.ts  tests/e2e/nopcommerce.e2e.spec.ts --headed",
+    "test:apiframework": "npx playwright test  --config=config/test.playwright.config.ts  tests/api/framework.friendly.users.api.spec.ts",
+    "test:api": "npx playwright test  --config=config/test.playwright.config.ts  tests/api/users.api.spec.ts",
+    "test:e2e": "npx playwright test  --config=config/test.playwright.config.ts  tests/e2e/nopcommerce.e2e.spec.ts --headed",
+    "test:e2etest": "npx playwright test  --config=config/test.playwright.config.ts  tests/e2e/nopcommerce.e2etest.spec.ts --headed",
+    "test:e2etestexp": "npx playwright test  --config=config/test.playwright.config.ts  tests/e2e/experiment.nopcommerce.e2etest.spec.ts --headed",
     "dev:make-apt": "npx playwright test  --config=config/dev.playwright.config.ts  tests/functional/env.config.make.appt.spec.ts --headed",
     "test:make-apt": "npx playwright test  --config=config/test.playwright.config.ts  tests/functional/env.config.make.appt.spec.ts --headed",
     "demo:csvparams": "npx playwright test tests/demo/csvparams.make.appt.spec.ts --headed",
