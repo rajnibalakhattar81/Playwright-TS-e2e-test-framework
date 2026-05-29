@@ -13,7 +13,7 @@
     "test:e2etest": "npx playwright test  --config=config/test.playwright.config.ts  tests/e2e/nopcommerce.e2etest.spec.ts --headed",
     "test:e2etestexp": "npx playwright test  --config=config/test.playwright.config.ts  tests/e2e/experiment.nopcommerce.e2etest.spec.ts --headed",
     "dev:make-apt": "npx playwright test  --config=config/dev.playwright.config.ts  tests/functional/env.config.make.appt.spec.ts --headed",
-    "test:make-apt": "npx playwright test  --config=config/test.playwright.config.ts  tests/functional/env.config.make.appt.spec.ts --headed",
+    "test:make-apt": "npx playwright test  --config=config/test.playwright.config.ts  tests/functional/env.config.make.appt.spec.ts ",
     "demo:csvparams": "npx playwright test tests/demo/csvparams.make.appt.spec.ts --headed",
     "demo:params": "npx playwright test tests/demo/params.make.appt.spec.ts --headed",
     "demo:tag": "npx playwright test --grep @smoke --headed",
