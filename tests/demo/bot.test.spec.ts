@@ -23,7 +23,7 @@ const { chromium } = require('playwright');
   await page.getByRole('button', { name: 'Log in' }).click();
   //await page.getByRole('button', { name: 'Log in' }).click();
 
-  //await browser.close();
+  await browser.close();
   // ... proceed with actions
 })();
 
