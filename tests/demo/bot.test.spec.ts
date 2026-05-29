@@ -2,7 +2,7 @@ const { chromium } = require('playwright');
 
 (async () => {
   const browser = await chromium.launch({
-    headless: false, // Run in headed mode
+    headless: true, // Run in headed mode
     args: [
       '--disable-blink-features=AutomationControlled', // Hides webdriver flag
       '--disable-infobars',
