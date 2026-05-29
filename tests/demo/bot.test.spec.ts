@@ -21,7 +21,7 @@ const { chromium } = require('playwright');
   //await page.goto('await page.goto('https://admin-demo.nopcommerce.com/login?returnUrl=%2Fadmin%2F');
   await page.goto('https://admin-demo.nopcommerce.com/');
   await page.getByRole('button', { name: 'Log in' }).click();
-  await page.getByRole('button', { name: 'Log in' }).click();
+  //await page.getByRole('button', { name: 'Log in' }).click();
 
   //await browser.close();
   // ... proceed with actions
